@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-HackPassApplication<HackPass>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "GabrielSamin.HackPass.HackPassApplication",
+            "projectName": "HackPass",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
