@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.5</version>
+		<version>3.1.11</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>Gabriel-Samin</groupId>
@@ -36,7 +36,7 @@
 		<dependency>
 			<groupId>org.mongodb</groupId>
 			<artifactId>mongodb-driver-sync</artifactId>
-			<version>5.0.1</version>
+			<version>4.9.0</version>
 		</dependency>
 	</dependencies>
 
