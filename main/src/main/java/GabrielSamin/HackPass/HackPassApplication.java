@@ -19,8 +19,6 @@ public class HackPassApplication implements CommandLineRunner{
 
     @Override
     public void run(String... args) throws Exception {
-        //ObjectId id = new ObjectId();
-        //Users user1 = new Users(id, "Samin Yasar", "samin2668@gmail.com", "405861");
-        //userRepository.save(user1);
+        
     }
 }
