@@ -6,6 +6,8 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import GabrielSamin.HackPass.DTO.UsersDTO;
+
 @Document("users")
 public class Users {
     
@@ -18,6 +20,10 @@ public class Users {
     private Date checkinTime;
     private Boolean checkinStatus;
 
+    public Users(){
+
+    }
+
     public Users(String name, String email, String university, 
         String studentId, Date checkinTime, Boolean checkinStatus) {
         this._id = new ObjectId(name);
@@ -27,6 +33,11 @@ public class Users {
         this.studentId = studentId;
         this.checkinTime = checkinTime;
         this.checkinStatus = checkinStatus;
+    }
+
+    public UsersDTO DocToDTO(){
+        return new UsersDTO(this._id, this.name, this.email, this.university,
+        this.studentId, this.checkinTime, this.checkinStatus);
     }
 
     public ObjectId get_id() {

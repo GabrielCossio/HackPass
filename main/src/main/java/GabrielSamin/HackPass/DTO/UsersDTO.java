@@ -14,6 +14,10 @@ public class UsersDTO {
     private Date checkinTime;
     private Boolean checkinStatus;
 
+    public UsersDTO(){
+        
+    }
+
     public UsersDTO(ObjectId _id, String name, String email, String university, 
         String studentId, Date checkinTime, Boolean checkinStatus) {
         this._id = _id;
