@@ -20,13 +20,13 @@ public class Users {
     private Date checkinTime;
     private Boolean checkinStatus;
 
-    public Users(){
-
+    public Users() {
+        
     }
 
     public Users(String name, String email, String university, 
         String studentId, Date checkinTime, Boolean checkinStatus) {
-        this._id = new ObjectId(name);
+        this._id = new ObjectId();
         this.name = name;
         this.email = email;
         this.university = university;
@@ -36,7 +36,7 @@ public class Users {
     }
 
     public UsersDTO DocToDTO(){
-        return new UsersDTO(this._id, this.name, this.email, this.university,
+        return new UsersDTO(this.name, this.email, this.university,
         this.studentId, this.checkinTime, this.checkinStatus);
     }
 

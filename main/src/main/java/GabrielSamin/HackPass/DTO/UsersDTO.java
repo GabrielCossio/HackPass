@@ -2,11 +2,9 @@ package GabrielSamin.HackPass.DTO;
 
 import java.util.Date;
 
-import org.bson.types.ObjectId;
 
 public class UsersDTO {
     
-    private ObjectId _id;
     private String name;
     private String email;
     private String university;
@@ -18,23 +16,14 @@ public class UsersDTO {
         
     }
 
-    public UsersDTO(ObjectId _id, String name, String email, String university, 
+    public UsersDTO(String name, String email, String university, 
         String studentId, Date checkinTime, Boolean checkinStatus) {
-        this._id = _id;
         this.name = name;
         this.email = email;
         this.university = university;
         this.studentId = studentId;
         this.checkinTime = checkinTime;
         this.checkinStatus = checkinStatus;
-    }
-
-    public ObjectId get_id() {
-        return _id;
-    }
-
-    public void set_id(ObjectId _id) {
-        this._id = _id;
     }
 
     public String getName() {
