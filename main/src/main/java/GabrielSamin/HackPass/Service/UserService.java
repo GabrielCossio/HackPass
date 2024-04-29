@@ -33,6 +33,9 @@ public class UserService {
     public UsersDTO addUser(UsersDTO u){
         
         Users newUser = u.DTOToDoc();
+        if(userRepo.count()>=500){
+            newUser.setWaitlistStatus(true);
+        }
         u = userRepo.save(newUser).DocToDTO();
 
         return u;

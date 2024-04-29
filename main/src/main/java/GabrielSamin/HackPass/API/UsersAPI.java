@@ -2,10 +2,10 @@ package GabrielSamin.HackPass.API;
 
 import java.util.List;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +19,6 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
-
-
 
 @RestController
 @RequestMapping("/")
@@ -41,6 +39,7 @@ public class UsersAPI {
     }
 
     @PostMapping("user")
+    @CrossOrigin(origins = "http://localhost:5173")
     public ResponseEntity<UsersDTO> addUser(@RequestBody @Valid UsersDTO entity) {
         entity = userService.addUser(entity);
         return new ResponseEntity<UsersDTO>(entity, HttpStatus.CREATED);
@@ -66,5 +65,4 @@ public class UsersAPI {
         }
 
     }
-    
 }

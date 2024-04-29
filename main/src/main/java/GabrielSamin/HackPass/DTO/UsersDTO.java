@@ -20,6 +20,8 @@ public class UsersDTO {
     private String studentId;
     private Date checkinTime;
     private Boolean checkinStatus;
+    private Boolean waitlist;
+
 
     public UsersDTO(){
         
@@ -36,18 +38,19 @@ public class UsersDTO {
     }
 
     public UsersDTO(String name, String email, String university, 
-        String studentId) {
+        String studentId, Boolean waitlist) {
         this.name = name;
         this.email = email;
         this.university = university;
         this.studentId = studentId;
         this.checkinTime = null;
         this.checkinStatus = null;
+        this.waitlist = waitlist;
     }
 
     public Users DTOToDoc(){
         Users newUser = new Users(this.name, this.email, 
-        this.university, this.studentId);
+        this.university, this.studentId, this.waitlist);
 
         return newUser;
     }
@@ -100,5 +103,11 @@ public class UsersDTO {
         this.checkinStatus = checkinStatus;
     }
 
-    
+    public Boolean getWaitlistStatus() {
+        return waitlist;
+    }
+
+    public void setWaitlistStatus(Boolean waitlist) {
+        this.waitlist = waitlist;
+    }
 }
