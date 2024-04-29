@@ -45,10 +45,15 @@ public class UsersAPI {
         return new ResponseEntity<UsersDTO>(entity, HttpStatus.CREATED);
     }
 
-    @PutMapping("path/{id}")
+    @PutMapping("user/{id}")
     public ResponseEntity<UsersDTO> updateCheckinStatus(@PathVariable String id) {
+        UsersDTO updatedUsersDTO = userService.updateCheckinStatus(id);
 
-        return new ResponseEntity<UsersDTO>(null);
+        if (updatedUsersDTO != null) { 
+            return ResponseEntity.ok(updatedUsersDTO); //return 200 OK w/ updated DTO
+        } else{
+            return ResponseEntity.notFound().build(); //404 user not found
+        }
     }
     
 }
