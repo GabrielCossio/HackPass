@@ -25,14 +25,14 @@ public class Users {
     }
 
     public Users(String name, String email, String university, 
-        String studentId, Date checkinTime, Boolean checkinStatus) {
+        String studentId) {
         this._id = new ObjectId();
         this.name = name;
         this.email = email;
         this.university = university;
         this.studentId = studentId;
-        this.checkinTime = checkinTime;
-        this.checkinStatus = checkinStatus;
+        this.checkinTime = new Date();
+        this.checkinStatus = false;
     }
 
     public UsersDTO DocToDTO(){

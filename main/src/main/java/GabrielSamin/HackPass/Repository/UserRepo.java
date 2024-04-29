@@ -7,5 +7,5 @@ import GabrielSamin.HackPass.Document.Users;
 
 @Repository
 public interface UserRepo extends MongoRepository<Users, ObjectId> {
-    public Users findByStudentId(String studentId);
+    public Users findBy_id(ObjectId _id);
 }

@@ -3,6 +3,7 @@ package GabrielSamin.HackPass.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,17 @@ public class UserService {
     }
 
     public UsersDTO findByStudentId(String id){
-        Users u = userRepo.findByStudentId(id);
+        ObjectId ID = new ObjectId(id);
+        Users u = userRepo.findBy_id(ID);
         
         return u.DocToDTO();
+    }
+
+    public UsersDTO addUser(UsersDTO u){
+        
+        Users newUser = u.DTOToDoc();
+        u = userRepo.save(newUser).DocToDTO();
+
+        return u;
     }
 }

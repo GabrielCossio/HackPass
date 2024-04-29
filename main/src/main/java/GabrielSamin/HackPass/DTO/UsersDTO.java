@@ -2,6 +2,8 @@ package GabrielSamin.HackPass.DTO;
 
 import java.util.Date;
 
+import GabrielSamin.HackPass.Document.Users;
+
 
 public class UsersDTO {
     
@@ -17,13 +19,30 @@ public class UsersDTO {
     }
 
     public UsersDTO(String name, String email, String university, 
-        String studentId, Date checkinTime, Boolean checkinStatus) {
+        String studentId, Date date, Boolean checkinStatus) {
         this.name = name;
         this.email = email;
         this.university = university;
         this.studentId = studentId;
-        this.checkinTime = checkinTime;
+        this.checkinTime = date;
         this.checkinStatus = checkinStatus;
+    }
+
+    public UsersDTO(String name, String email, String university, 
+        String studentId) {
+        this.name = name;
+        this.email = email;
+        this.university = university;
+        this.studentId = studentId;
+        this.checkinTime = null;
+        this.checkinStatus = null;
+    }
+
+    public Users DTOToDoc(){
+        Users newUser = new Users(this.name, this.email, 
+        this.university, this.studentId);
+
+        return newUser;
     }
 
     public String getName() {
