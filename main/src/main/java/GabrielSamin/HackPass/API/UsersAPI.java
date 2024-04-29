@@ -6,6 +6,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,10 +51,20 @@ public class UsersAPI {
         UsersDTO updatedUsersDTO = userService.updateCheckinStatus(id);
 
         if (updatedUsersDTO != null) { 
-            return ResponseEntity.ok(updatedUsersDTO); //return 200 OK w/ updated DTO
+            return new ResponseEntity<UsersDTO>(updatedUsersDTO, HttpStatus.OK); //return 200 OK w/ updated DTO
         } else{
-            return ResponseEntity.notFound().build(); //404 user not found
+            return new ResponseEntity<UsersDTO>(updatedUsersDTO, HttpStatus.NOT_FOUND); //404 user not found
         }
+    }
+
+    @DeleteMapping
+    public ResponseEntity<String> deleteUser(@PathVariable String Id){
+        if(userService.deleteUser(Id)){
+            return new ResponseEntity<String>("User " + Id + " Has Been Deleted", HttpStatus.OK);
+        } else{
+            return new ResponseEntity<String>("User " + Id + " Does Not Exist", HttpStatus.NOT_FOUND);
+        }
+
     }
     
 }

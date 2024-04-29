@@ -51,6 +51,16 @@ public class UserService {
             return null;
         }
 
+    }
 
+    public Boolean deleteUser(String id){
+        Optional<UsersDTO> optionalUser = Optional.of(this.findById(id));
+        if(optionalUser.isPresent()){
+            Users userToDelete = optionalUser.get().DTOToDoc();
+            userRepo.delete(userToDelete);
+            return true;
+        } else{
+            return false;
+        }
     }
 }
