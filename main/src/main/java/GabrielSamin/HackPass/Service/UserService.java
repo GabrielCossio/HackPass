@@ -21,7 +21,7 @@ public class UserService {
         return usersList.stream().map(u->u.DocToDTO()).collect(Collectors.toList());
     }
 
-    public UsersDTO findByStudentId(String id){
+    public UsersDTO findById(String id){
         ObjectId ID = new ObjectId(id);
         Users u = userRepo.findBy_id(ID);
         

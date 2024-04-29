@@ -3,13 +3,20 @@ package GabrielSamin.HackPass.DTO;
 import java.util.Date;
 
 import GabrielSamin.HackPass.Document.Users;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 
 public class UsersDTO {
     
+    @NotBlank(message = "Name Is Required")
     private String name;
+    @NotBlank(message = "Email Is Required")
+    @Email(message = "Email Is Not Valid")
     private String email;
+    @NotBlank(message = "University Is Required")
     private String university;
+    @NotBlank(message = "Student ID Is Required")
     private String studentId;
     private Date checkinTime;
     private Boolean checkinStatus;

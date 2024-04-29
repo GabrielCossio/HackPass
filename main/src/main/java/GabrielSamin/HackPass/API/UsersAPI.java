@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import GabrielSamin.HackPass.DTO.UsersDTO;
 import GabrielSamin.HackPass.Service.UserService;
+import jakarta.validation.Valid;
+
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -33,18 +35,18 @@ public class UsersAPI {
     
     @GetMapping("user/{id}")
     public ResponseEntity<UsersDTO> getUserById(@PathVariable String id) {
-        UsersDTO dto = userService.findByStudentId(id);
+        UsersDTO dto = userService.findById(id);
         return new ResponseEntity<UsersDTO>(dto, HttpStatus.OK);
     }
 
     @PostMapping("user")
-    public ResponseEntity<UsersDTO> addUser(@RequestBody UsersDTO entity) {
+    public ResponseEntity<UsersDTO> addUser(@RequestBody @Valid UsersDTO entity) {
         entity = userService.addUser(entity);
         return new ResponseEntity<UsersDTO>(entity, HttpStatus.CREATED);
     }
 
     @PutMapping("path/{id}")
-    public ResponseEntity<UsersDTO> updateCheckinStatus(@PathVariable ObjectId id) {
+    public ResponseEntity<UsersDTO> updateCheckinStatus(@PathVariable String id) {
 
         return new ResponseEntity<UsersDTO>(null);
     }
