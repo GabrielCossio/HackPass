@@ -5,6 +5,7 @@ import java.util.List;
 import GabrielSamin.HackPass.DTO.UsersDTO;
 
 public interface UserService {
+    public void setMaxCount();
     public List<UsersDTO> getAllUsers();
     public UsersDTO findById(String id);
     public UsersDTO addUser(UsersDTO u);

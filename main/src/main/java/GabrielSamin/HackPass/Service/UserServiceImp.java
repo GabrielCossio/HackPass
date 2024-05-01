@@ -3,6 +3,7 @@ package GabrielSamin.HackPass.Service;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Optional;
+import java.util.Scanner;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,15 @@ import GabrielSamin.HackPass.Repository.UserRepo;
 public class UserServiceImp implements UserService{
     @Autowired
     UserRepo userRepo;
+    private long maxCount;
+    
+    public void setMaxCount(){
+        Scanner reader = new Scanner(System.in);  // Reading from System.in
+        System.out.println("Enter Max Occupancy: ");
+        long max = reader.nextLong(); 
+        reader.close();
+        this.maxCount = max;
+    }
 
     public List<UsersDTO> getAllUsers(){
         List<Users> usersList = userRepo.findAll();
@@ -32,7 +42,7 @@ public class UserServiceImp implements UserService{
     public UsersDTO addUser(UsersDTO u){
         
         Users newUser = u.DTOToDoc();
-        if(userRepo.count()>=500){
+        if(userRepo.count()>=maxCount){
             newUser.setWaitlistStatus(true);
         }
         u = userRepo.save(newUser).DocToDTO();
