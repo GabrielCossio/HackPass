@@ -32,7 +32,7 @@ public class Users {
         this.email = email;
         this.university = university;
         this.studentId = studentId;
-        this.checkinTime = new Date();
+        this.checkinTime = null;
         this.checkinStatus = false;
         this.waitlist = waitlist;
     }
@@ -45,6 +45,11 @@ public class Users {
     public ObjectId get_id() {
         return _id;
     }
+    
+    public void set_id(ObjectId _id) {
+        this._id = _id;
+    }
+
 
     public String getName() {
         return name;

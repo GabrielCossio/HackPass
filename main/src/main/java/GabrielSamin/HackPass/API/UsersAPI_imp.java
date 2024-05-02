@@ -39,7 +39,7 @@ public class UsersAPI_imp implements UsersAPI{
     }
 
     @PostMapping("user")
-    @CrossOrigin(origins = "http://localhost:5173")
+    @CrossOrigin(origins = "http://192.168.1.144:5173")
     public ResponseEntity<UsersDTO> addUser(@RequestBody @Valid UsersDTO entity) {
         entity = userService.addUser(entity);
         return new ResponseEntity<UsersDTO>(entity, HttpStatus.CREATED);

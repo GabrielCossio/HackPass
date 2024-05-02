@@ -1,5 +1,6 @@
 package GabrielSamin.HackPass.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Optional;
@@ -19,12 +20,11 @@ public class UserServiceImp implements UserService{
     UserRepo userRepo;
     private long maxCount;
     
-    public void setMaxCount(){
-        Scanner reader = new Scanner(System.in);  // Reading from System.in
-        System.out.println("Enter Max Occupancy: ");
-        long max = reader.nextLong(); 
-        reader.close();
-        this.maxCount = max;
+    public UserServiceImp(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter Max Attendance: ");
+        this.maxCount = scanner.nextLong();
+        scanner.close();
     }
 
     public List<UsersDTO> getAllUsers(){
@@ -57,6 +57,8 @@ public class UserServiceImp implements UserService{
             UsersDTO userDTO = optionalUser.get();
             Users user = userDTO.DTOToDoc();
             user.setCheckinStatus(true);
+            user.setCheckinTime(new Date());
+            user.set_id(new ObjectId(id));
             Users updatedUser = userRepo.save(user);
             return updatedUser.DocToDTO();
         } else {
