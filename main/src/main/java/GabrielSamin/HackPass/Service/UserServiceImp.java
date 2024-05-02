@@ -45,6 +45,9 @@ public class UserServiceImp implements UserService{
         if(userRepo.count()>=maxCount){
             newUser.setWaitlistStatus(true);
         }
+        else{
+            newUser.setWaitlistStatus(false);
+        }
         u = userRepo.save(newUser).DocToDTO();
 
         return u;

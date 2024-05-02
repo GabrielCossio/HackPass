@@ -2,7 +2,9 @@ package GabrielSamin.HackPass.DTO;
 
 import java.util.Date;
 
+
 import GabrielSamin.HackPass.Document.Users;
+import jakarta.annotation.Nullable;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -18,6 +20,7 @@ public class UsersDTO {
     private String university;
     @NotBlank(message = "Student ID Is Required")
     private String studentId;
+    @Nullable
     private Date checkinTime;
     private Boolean checkinStatus;
     private Boolean waitlist;
@@ -35,6 +38,7 @@ public class UsersDTO {
         this.studentId = studentId;
         this.checkinTime = date;
         this.checkinStatus = checkinStatus;
+        this.waitlist = false;
     }
 
     public UsersDTO(String name, String email, String university, 
@@ -44,7 +48,7 @@ public class UsersDTO {
         this.university = university;
         this.studentId = studentId;
         this.checkinTime = null;
-        this.checkinStatus = null;
+        this.checkinStatus = false;
         this.waitlist = waitlist;
     }
 

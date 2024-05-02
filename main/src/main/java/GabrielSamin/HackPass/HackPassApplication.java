@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.env.Environment;
 
 import GabrielSamin.HackPass.Service.UserService;
 
@@ -14,6 +15,9 @@ public class HackPassApplication implements CommandLineRunner{
     
     @Autowired
     UserService userService;
+
+    @Autowired
+    Environment env;
     
     public static void main(String[] args) {
         SpringApplication.run(HackPassApplication.class, args);

@@ -5,6 +5,7 @@ import java.util.Date;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import jakarta.annotation.Nullable;
 
 import GabrielSamin.HackPass.DTO.UsersDTO;
 
@@ -17,8 +18,9 @@ public class Users {
     private String email;
     private String university;
     private String studentId;
-    private Date checkinTime;
     private Boolean checkinStatus;
+    @Nullable
+    private Date checkinTime;
     private Boolean waitlist;
 
     public Users() {
