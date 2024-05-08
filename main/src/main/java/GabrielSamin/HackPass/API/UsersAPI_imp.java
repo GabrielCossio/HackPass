@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import GabrielSamin.HackPass.DTO.UsersDTO;
@@ -63,6 +64,11 @@ public class UsersAPI_imp implements UsersAPI{
         } else{
             return new ResponseEntity<String>("User " + Id + " Does Not Exist", HttpStatus.NOT_FOUND);
         }
-
     }
+
+    @PostMapping("login")
+    public void generateLogiLink(@RequestParam String email){
+        
+    }
+    
 }
